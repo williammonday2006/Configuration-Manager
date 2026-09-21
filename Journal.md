@@ -1,0 +1,2 @@
+# Phase 1
+Checking reference quality with == confirms that both variables retrieved from getInstance() refer to the same object in memory. This is important so that we meet the goal of only one instance of the class. THe constructor is private so other lasses cannot directly create it with new. The getInstance() method is static so it can be called without already having an instance.
