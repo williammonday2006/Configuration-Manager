@@ -1,2 +1,5 @@
 # Phase 1
 Checking reference quality with == confirms that both variables retrieved from getInstance() refer to the same object in memory. This is important so that we meet the goal of only one instance of the class. THe constructor is private so other lasses cannot directly create it with new. The getInstance() method is static so it can be called without already having an instance.
+
+# Phase 2
+Eager initialization creates a singleton as soon as the class is loaded, even if its not ever used. Lazy loading is better for when you dont know if it will be used and if its expensive. So that you only load it when you know you will use it. The trade-off is it makes the getInstance method more complicated because it needs to see if it already exists. There could also be issues with synchronization when you account for multithreaded programs.

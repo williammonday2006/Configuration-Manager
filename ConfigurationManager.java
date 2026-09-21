@@ -1,17 +1,23 @@
 public class ConfigurationManager {
-    private static final ConfigurationManager instance = new ConfigurationManager();
+    private static ConfigurationManager instance;
 
     private int volume;
     private String resolution;
     private String displayMode;
 
     private ConfigurationManager() {
+        System.out.println("ConfigurationManager created.");
+
         volume = 75;
         resolution = "1920x1080";
         displayMode = "Fullscreen";
     }
 
     public static ConfigurationManager getInstance() {
+        if (instance == null) {
+            instance = new ConfigurationManager();
+        }
+
         return instance;
     }
 
