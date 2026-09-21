@@ -3,3 +3,6 @@ Checking reference quality with == confirms that both variables retrieved from g
 
 # Phase 2
 Eager initialization creates a singleton as soon as the class is loaded, even if its not ever used. Lazy loading is better for when you dont know if it will be used and if its expensive. So that you only load it when you know you will use it. The trade-off is it makes the getInstance method more complicated because it needs to see if it already exists. There could also be issues with synchronization when you account for multithreaded programs.
+
+# Phase 3
+The constructors of my subsystem classes do not show that they depend on ConfigurationManager. So AudioSystem can be created with a simple constructor and does not require a configuration object as a parameter. This is hidden dependency.The dependency exists inside the class because the methods directly call ConfigurationManager.getInstance(), but someone looking only at the constructor would not know that the class requires the configuration manager. Hidden dependencies can make testing dificult and should in general be avoided when possible.

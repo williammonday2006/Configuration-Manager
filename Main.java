@@ -1,18 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Program started.");
+        AudioSystem audio = new AudioSystem();
+        GraphicsRenderer graphics = new GraphicsRenderer();
 
-        ConfigurationManager config1 = ConfigurationManager.getInstance();
+        audio.playSound("Music");
+        graphics.render();
 
-        System.out.println("First instance retrieved.");
+        System.out.println();
 
-        ConfigurationManager config2 = ConfigurationManager.getInstance();
+        audio.setVolume(30);
 
-        System.out.println("Second instance retrieved.");
-        System.out.println("Same object: " + (config1 == config2));
+        System.out.println();
 
-        config1.setVolume(25);
-
-        System.out.println("Volume through config2: " + config2.getVolume());
+        audio.playSound("Music");
+        graphics.render();
     }
 }
