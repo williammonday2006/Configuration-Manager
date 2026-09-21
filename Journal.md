@@ -6,3 +6,6 @@ Eager initialization creates a singleton as soon as the class is loaded, even if
 
 # Phase 3
 The constructors of my subsystem classes do not show that they depend on ConfigurationManager. So AudioSystem can be created with a simple constructor and does not require a configuration object as a parameter. This is hidden dependency.The dependency exists inside the class because the methods directly call ConfigurationManager.getInstance(), but someone looking only at the constructor would not know that the class requires the configuration manager. Hidden dependencies can make testing dificult and should in general be avoided when possible.
+
+# Phase 4
+The Singleton made it easy for multiple subsystems to access the same configuration without passing it through constructors. Both systems can access the same shared settings. The downside is that it creates global state and hidden dependencies, which can make testing harder. A Singleton is useful when only one shared instance is needed, but Dependency Injection can be better when flexibility and easy testing are more important.
